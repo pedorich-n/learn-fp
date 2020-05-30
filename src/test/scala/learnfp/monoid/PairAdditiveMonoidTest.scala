@@ -1,8 +1,9 @@
 package learnfp.monoid
 
-import org.scalatest.{Matchers, WordSpecLike}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
 
-class PairAdditiveMonoidTest extends WordSpecLike with Matchers {
+class PairAdditiveMonoidTest extends AnyWordSpecLike with Matchers {
   import MonoidOps._
   import PairAdditiveMonoid._
   import SimpleMonoid._
@@ -22,9 +23,9 @@ class PairAdditiveMonoidTest extends WordSpecLike with Matchers {
     }
 
     "obey associtiativity" in {
-      val a = Pair(Pair(Sum(1), Product(2)), Pair(List(3, 33, 333), Sum(4)))
-      val b = Pair(Pair(Sum(21), Product(22)), Pair(List(23, 233, 2333), Sum(24)))
-      val c = Pair(Pair(Sum(31), Product(32)), Pair(List(33, 333, 3333), Sum(34)))
+      val a: Pair[Pair[Sum, Product], Pair[List[Int], Sum]] = Pair(Pair(Sum(1), Product(2)), Pair(List(3, 33, 333), Sum(4)))
+      val b: Pair[Pair[Sum, Product], Pair[List[Int], Sum]] = Pair(Pair(Sum(21), Product(22)), Pair(List(23, 233, 2333), Sum(24)))
+      val c: Pair[Pair[Sum, Product], Pair[List[Int], Sum]] = Pair(Pair(Sum(31), Product(32)), Pair(List(33, 333, 3333), Sum(34)))
       a |+| b |+| c shouldBe a |+| (b |+| c)
     }
   }

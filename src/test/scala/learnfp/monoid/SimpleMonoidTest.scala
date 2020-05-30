@@ -1,8 +1,9 @@
 package learnfp.monoid
 
-import org.scalatest.{Matchers, WordSpecLike}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
 
-class SimpleMonoidTest extends WordSpecLike with Matchers {
+class SimpleMonoidTest extends AnyWordSpecLike with Matchers {
   import MonoidOps._
   import SimpleMonoid._
 
@@ -15,7 +16,7 @@ class SimpleMonoidTest extends WordSpecLike with Matchers {
       Monoid.mzero[Sum] |+| Sum(10) shouldBe Sum(10)
     }
     "obey associativity" in {
-      Sum(10) |+| Sum (20) |+| Sum(30) shouldBe Sum(10) |+| (Sum(20) |+| Sum(30))
+      Sum(10) |+| Sum(20) |+| Sum(30) shouldBe Sum(10) |+| (Sum(20) |+| Sum(30))
     }
   }
 
@@ -26,7 +27,7 @@ class SimpleMonoidTest extends WordSpecLike with Matchers {
       Monoid.mzero[Product] |+| Product(10) shouldBe Product(10)
     }
     "obey associativity" in {
-      Product(10) |+| Product (20) |+| Product(30) shouldBe Product(10) |+| (Product(20) |+| Product(30))
+      Product(10) |+| Product(20) |+| Product(30) shouldBe Product(10) |+| (Product(20) |+| Product(30))
     }
   }
 }

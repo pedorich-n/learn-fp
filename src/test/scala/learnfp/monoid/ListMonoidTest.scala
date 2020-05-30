@@ -1,8 +1,9 @@
 package learnfp.monoid
 
-import org.scalatest.{WordSpecLike, Matchers}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
 
-class ListMonoidTest extends WordSpecLike with Matchers {
+class ListMonoidTest extends AnyWordSpecLike with Matchers {
 
   import MonoidOps._
   import ListMonoid._
