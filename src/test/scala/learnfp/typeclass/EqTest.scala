@@ -1,10 +1,12 @@
 package learnfp.typeclass
 
-import org.scalatest.{Matchers, WordSpecLike}
+import org.scalatest.matchers.should.Matchers
+import org.scalatest.wordspec.AnyWordSpecLike
+
 import EqOps._
 import EqInstances._
 
-class EqTest extends WordSpecLike with Matchers {
+class EqTest extends AnyWordSpecLike with Matchers {
   "Eq should" should {
     "eq ints" in {
       1 ==== 1 shouldBe true
@@ -28,6 +30,7 @@ class EqTest extends WordSpecLike with Matchers {
       List("aa", "bbb", "ccc") ==== List("a", "bb", "cc") shouldBe false
     }
 
+    //noinspection ComparingUnrelatedTypes
     "regular == should compares different types" in {
       "asd" == 5 shouldBe false
       List(1, 2, 3) == 5 shouldBe false
